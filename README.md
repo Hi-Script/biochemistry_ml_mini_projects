@@ -1,39 +1,48 @@
 # ALAS1 Gene Expression and Read Count Analysis Mini-Projects
 
-This repository contains two Jupyter Notebook-based mini-projects analyzing **ALAS1 gene expression levels** and **read counts** across strains, using a 1000-row RNA-Seq dataset sourced from the Bgee database. As a Biochemistry graduate (Second Class Upper), I’m pursuing a machine learning (ML) developer path with a focus on bioinformatics. These projects compute a combined expression metric by normalizing and averaging `Expression level` and `Read count` columns to identify the strain with the highest expression, relevant to heme biosynthesis studies. The Jupyter Notebook format enables interactive data exploration and visualization, ideal for sharing with the bioinformatics community.
+This repository contains four Jupyter Notebook-based mini-projects analyzing **ALAS1 gene expression levels** and **read counts** across strains, using a 1000-row RNA-Seq dataset from the Bgee database. As a Biochemistry graduate, I’m pursuing an ML developer path with a focus on bioinformatics. These projects support heme biosynthesis studies and my Phase 2 and 3 ML roadmap.
 
 ## Project Overview
 
 ### 1. ALAS1 Expression Analyzer
-- **Description**: A Jupyter Notebook analyzing ALAS1 gene expression levels and read counts across strains (e.g., HeLa, HepG2, MCF7 cell lines) from a 1000-row dataset. It normalizes the `Expression level` and `Read count` columns using min-max scaling, computes a combined expression metric (`Expression_combined`), calculates statistics (mean, median, standard deviation, max, min), and visualizes the distribution using a histogram. The strain with the highest combined expression is identified.
-- **Purpose**: Demonstrates interactive data manipulation and visualization with Pandas and Matplotlib, preparing biochemical data for ML preprocessing in bioinformatics.
+- **Description**: Normalizes `ALAS1_Expression` and `ALAS1_Read_Count` to compute `ALAS1_Combined`, calculates statistics, and visualizes distribution via histogram.
 - **Files**:
-  - `alas1_expression_analyser.ipynb`: Jupyter Notebook for analysis and visualization.
-  - `alas1_expression_data.csv`: 1000-row dataset with `Gene name,Expression level,Read count,Strain,Time_min,Expression_combined`.
-  - `alas1_expression_distribution.png`: Histogram of combined expression distribution.
-  - `requirements.txt`: Python library dependencies.
+  - `alas1_expression_analyzer.ipynb`
+  - `alas1_expression_data.csv`
+  - `alas1_expression_distribution.png`
+  - `requirements.txt`
 
 ### 2. ALAS1 Read Count Visualizer
-- **Description**: A Jupyter Notebook visualizing the combined ALAS1 expression metric (`Expression_combined`, mean of normalized `Expression level` and `Read count`) over time using a generated `Time_min` column (0–999 minutes) across a 1000-row dataset. It calculates statistics, detects trends via linear regression, and plots trends with trend lines. The strain with the highest combined expression is identified.
-- **Purpose**: Practices time-series analysis interactively, a key skill for ML tasks like forecasting in biochemical contexts.
+- **Description**: Visualizes `ALAS1_Combined` over time (`Time_min`), with linear and robust (Huber) regression to handle outliers (e.g., at ~150 minutes).
 - **Files**:
-  - `alas1_read_count.ipynb`: Jupyter Notebook for analysis and visualization.
-  - `dff.csv`: 1000-row dataset with  `Gene name,Expression level,Read count,Strain,Time_min,Expression_combined`.
-  - `alas1_read_count_trends.png`: Plot of combined expression trends over time.
-  - `requirements.txt`: Python library dependencies.
+  - `alas1_read_count_visualizer.ipynb`
+  - `alas1_read_counts.csv`, `alas1_read_counts_clean.csv` (optional)
+  - `alas1_read_count_trends.png`, `alas1_outlier_analysis.png`, `alas1_robust_trend.png`
+  - `requirements.txt`
+
+### 3. ALAS1 Strain Clustering
+- **Description**: Uses K-means clustering to group strains by `ALAS1_Combined`, evaluates with silhouette score, and analyzes outliers.
+- **Files**:
+  - `alas1_strain_clustering.ipynb`
+  - `alas1_expression_data.csv`
+  - `alas1_cluster_scatter.png`
+  - `requirements.txt`
+
+### 4. ALAS1 Expression Classifier
+- **Description**: Uses Random Forest to classify strains into high, medium, or low `ALAS1_Combined` levels, evaluates with accuracy and F1-score, and analyzes outlier classification.
+- **Purpose**: Identifies strain expression patterns for heme biosynthesis, responding to community feedback on outliers.
+- **Files**:
+  - `alas1_xpression_classifier.ipynb`
+  - `alas1_expression_data.csv`
+  - `alas1_confusion_matrix.png`, `alas1_feature_importance.png`
+  - `requirements.txt`
 
 ## Getting Started
+- **Prerequisites**: Python 3.8+, Jupyter (`pip install jupyter`), libraries (`pip install -r requirements.txt`): `pandas>=1.5.0`, `numpy>=1.24.0`, `matplotlib>=3.7.0`, `jupyter>=1.0.0`, `scikit-learn>=1.2.0`, `seaborn>=0.12.0`.
+- **Run**: Clone/download repo, navigate to project folder, run `jupyter notebook`, and execute `.ipynb` files.
+- **Data**: 1000-row Bgee RNA-Seq dataset for ALAS1 (Ensembl ID: ENSG00000023330), with `Strain_ID`, `Strain_Name`, `ALAS1_Expression`, `ALAS1_Read_Count`, `ALAS1_Combined`. Data: Bgee, CC BY 4.0, https://www.bgee.org.
 
-### Prerequisites
-- Python 3.8 or higher
-- Jupyter Notebook or JupyterLab (`pip install jupyter`)
-- Install required libraries: `pip install -r requirements.txt` (from either project folder)
-- Libraries: `pandas>=1.5.0`, `numpy>=1.24.0`, `matplotlib>=3.7.0`, `jupyter>=1.0.0`
+## License
+- **Code**: [MIT License](LICENSE).
+- **Data**: CC BY 4.0, cite: “Data from Bgee, CC BY 4.0, https://www.bgee.org, accessed July 2025.”
 
-### How to Run
-1. Clone or download this repository:
-   - Clone: `git clone https://github.com/your-username/biochemistry_ml_mini_projects.git`
-   - Or download as a ZIP from the GitHub repository page.
-2. Navigate to a project folder:
-   ```bash
-   cd biochemistry_ml_mini_projects/alas1_expression_analyzer
