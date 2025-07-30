@@ -27,6 +27,16 @@ This repository contains four Jupyter Notebook-based mini-projects analyzing **A
   - `alas1_expression_data.csv`
   - `alas1_cluster_scatter.png`
   - `requirements.txt`
+ 
+### 3. ALAS1 Strain Clustering Without Outliers
+- **Description**: Uses IQR method to analyses the outliers which 37 and fixed it to reduce the dataset to 963 rows.
+- **Files**:
+  - `alas1_strain_clustering.ipynb`
+  - `alas1_expression_clean_data.csv`
+  - `alas1_cluster_scatter.png`
+  - alas1_cluater_cleaned.png'
+  - 'alas1_combined_boxplot_with_outliers.png'
+  - `requirements.txt'
 
 ### 4. ALAS1 Expression Classifier
 - **Description**: Uses Random Forest to classify strains into high, medium, or low `ALAS1_Combined` levels, evaluates with accuracy and F1-score, and analyzes outlier classification.
@@ -36,7 +46,18 @@ This repository contains four Jupyter Notebook-based mini-projects analyzing **A
   - `alas1_expression_data.csv`
   - `alas1_confusion_matrix.png`, `alas1_feature_importance.png`
   - `requirements.txt`
-
+### 4. ALAS1 Expression Classifier
+- **Description**: Uses Random Forest to classify strains into high, medium, or low `ALAS1_Combined` levels, evaluates with accuracy and F1-score, and analyzes outlier classification.
+- **Purpose**: Identifies the outliers and fixed it to generate new dataset without outliers, responding to community feedback on outliers.
+- **Files**:
+  - `alas1_xpression_classifier.ipynb`
+  - `alas1_expression_data.csv`
+  - 'alas1_expression_data_without_outliers.csv'
+  - 'alas1_combineed_classfier_boxplot_with_outliers'
+  - 'alas1_confusion_matrix_without_outliers.png', 'alas1_feature_importance_without_outliers.png'
+  - `alas1_confusion_matrix.png`, `alas1_feature_importance.png`
+  - `requirements.txt`
+    
 ## Getting Started
 - **Prerequisites**: Python 3.8+, Jupyter (`pip install jupyter`), libraries (`pip install -r requirements.txt`): `pandas>=1.5.0`, `numpy>=1.24.0`, `matplotlib>=3.7.0`, `jupyter>=1.0.0`, `scikit-learn>=1.2.0`, `seaborn>=0.12.0`.
 - **Run**: Clone/download repo, navigate to project folder, run `jupyter notebook`, and execute `.ipynb` files.
